@@ -1,7 +1,6 @@
 pandas
 datetime
 pytz
-time
 streamlit
 lxml
 simpleaudio
