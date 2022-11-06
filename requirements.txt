@@ -5,3 +5,4 @@ pytz
 time
 streamlit
 lxml
+simpleaudio
