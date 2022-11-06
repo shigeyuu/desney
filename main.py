@@ -6,17 +6,18 @@ import time
 import streamlit as st
 import simpleaudio
 def main():
+    desney_date = st.date_input('ディズニーに行く予定日を選択してください。')
     btn_flg = st.button('監視する')
 
     st.write('再販されたらお知らせします。')
-    
     
     if btn_flg:
         while True:
             url = 'https://urtrip.jp/disneyland-sea-ticket-soldout/'
             data = pd.read_html(url, header = 0)
             df = data[1]
-            search_date = '12-21'
+            search_date = str(desney_date.month)+'-'+str(desney_date.day)
+
             df['日付'] = df['日付'].apply(lambda x:x[:5])
             saihan = df[df['日付']==search_date].iloc[0,3][4:]
             split_saihan = re.split(':| |/', saihan)
